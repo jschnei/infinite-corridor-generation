@@ -19,7 +19,7 @@ def get_edges(word):
     N = len(word)
     ans = {c : set() for c in ALPHABET}
 
-    for l1 in range(3, N/2):
+    for l1 in range(3, N//2):
         for inds1 in itertools.combinations(range(N), l1):
             inds = list(inds1)
             w1 = anagram_sig(''.join(word[i] for i in inds1))
@@ -83,6 +83,6 @@ for message in MESSAGES:
     message_graph = layer_graph(message)
     print(message, len(message_graph))
     pickle.dump(dict(message_graph),
-                open('anagram_path_preprocess/{}.pkl'.format(message.lower()), 'w'))
+                open('anagram_path_preprocess/{}.pkl'.format(message.lower()), 'wb'))
 
 
